@@ -15,10 +15,13 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+        // Obtener datos de la activity anterior
         String nombre = getIntent().getStringExtra("nombre");
         String apellido = getIntent().getStringExtra("apellido");
         String email = getIntent().getStringExtra("email");
         int imagen = getIntent().getIntExtra("imagen",0);
+
+        // Obtener id de los componentes de la activity actual
         Button idButtonMostrar = findViewById(R.id.buttonMostrar);
         TextView txtNombre = findViewById(R.id.txtNombre);
         TextView txtApellido = findViewById(R.id.txtApellido);
@@ -29,9 +32,11 @@ public class SecondActivity extends AppCompatActivity {
         TextView txtImg = findViewById(R.id.txtImg);
         ImageView idImagen = findViewById(R.id.imgUser);
 
+        //Configurar clicklistener del boton mostrar datos
         idButtonMostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /* Mostramos los datos una vez presionado el boton */
                 if (txtNom.getVisibility() != View.VISIBLE){
                     txtNom.setVisibility(View.VISIBLE);
                     txtApe.setVisibility(View.VISIBLE);
@@ -63,6 +68,7 @@ public class SecondActivity extends AppCompatActivity {
         });
 
 
+        // Boton para volver a la activity anterior.
         Button idButtonSalir = findViewById(R.id.buttonSalir);
 
         idButtonSalir.setOnClickListener(new View.OnClickListener() {
