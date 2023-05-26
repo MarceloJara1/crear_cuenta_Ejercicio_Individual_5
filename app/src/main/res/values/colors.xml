@@ -8,5 +8,5 @@
     <color name="txtColor2">#888a8a</color>
     <color name="txtColorButton">#ffffec</color>
     <color name="buttonBgSalir">#ff6961</color>
-
+    <color name="backgroundColor">#00FF00</color>
 </resources>

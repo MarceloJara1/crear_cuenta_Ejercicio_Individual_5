@@ -1,9 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.Convertidora_two" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+
+        <item name="android:textViewStyle">@style/CustomTextView</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+
     </style>
 
-    <style name="Theme.Convertidora_two" parent="Base.Theme.Convertidora_two" />
+    <style name="CustomTextView" parent="android:Widget.TextView">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#7700FF</item>
+    </style>
+
+
 </resources>
