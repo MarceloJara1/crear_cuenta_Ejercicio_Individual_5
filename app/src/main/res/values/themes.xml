@@ -3,13 +3,13 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light">
 
         <item name="android:textViewStyle">@style/CustomTextView</item>
-        <item name="android:windowBackground">@color/backgroundColor</item>
+        <item name="android:windowBackground">@color/fondo</item>
 
     </style>
 
     <style name="CustomTextView" parent="android:Widget.TextView">
         <item name="android:textSize">20sp</item>
-        <item name="android:textColor">#7700FF</item>
+        <item name="android:textColor">@color/txtColor2</item>
     </style>
 
 

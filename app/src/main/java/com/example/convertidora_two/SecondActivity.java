@@ -8,12 +8,18 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.convertidora_two.databinding.ActivitySecondBinding;
+
 public class SecondActivity extends AppCompatActivity {
 
+    private ActivitySecondBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        binding = ActivitySecondBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Obtener datos de la activity anterior
         String nombre = getIntent().getStringExtra("nombre");
@@ -22,60 +28,45 @@ public class SecondActivity extends AppCompatActivity {
         int imagen = getIntent().getIntExtra("imagen",0);
 
         // Obtener id de los componentes de la activity actual
-        Button idButtonMostrar = findViewById(R.id.buttonMostrar);
-        TextView txtNombre = findViewById(R.id.txtNombre);
-        TextView txtApellido = findViewById(R.id.txtApellido);
-        TextView txtEmail = findViewById(R.id.txtEmail);
-        TextView txtNom = findViewById(R.id.txtNom);
-        TextView txtApe = findViewById(R.id.txtApe);
-        TextView txtEma = findViewById(R.id.txtEma);
-        TextView txtImg = findViewById(R.id.txtImg);
-        ImageView idImagen = findViewById(R.id.imgUser);
-
-        //Configurar clicklistener del boton mostrar datos
-        idButtonMostrar.setOnClickListener(new View.OnClickListener() {
+        binding.buttonMostrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /* Mostramos los datos una vez presionado el boton */
-                if (txtNom.getVisibility() != View.VISIBLE){
-                    txtNom.setVisibility(View.VISIBLE);
-                    txtApe.setVisibility(View.VISIBLE);
-                    txtEma.setVisibility(View.VISIBLE);
-                    txtImg.setVisibility(View.VISIBLE);
-                    txtNombre.setText(nombre);
-                    txtApellido.setText(apellido);
-                    txtEmail.setText(email);
-                    idImagen.setImageResource(imagen);
-                    txtNombre.setVisibility(View.VISIBLE);
-                    txtApellido.setVisibility(View.VISIBLE);
-                    txtEmail.setVisibility(View.VISIBLE);
-                    idImagen.setVisibility(View.VISIBLE);
-                    idButtonMostrar.setText("Ocultar datos");
-
+                if(binding.txtNom.getVisibility()!=View.VISIBLE){
+                    binding.txtNom.setVisibility(View.VISIBLE);
+                    binding.txtApe.setVisibility(View.VISIBLE);
+                    binding.txtEma.setVisibility(View.VISIBLE);
+                    binding.txtImg.setVisibility(View.VISIBLE);
+                    binding.txtNombre.setText(nombre);
+                    binding.txtApellido.setText(apellido);
+                    binding.txtEmail.setText(email);
+                    binding.txtNombre.setVisibility(View.VISIBLE);
+                    binding.txtApellido.setVisibility(View.VISIBLE);
+                    binding.txtEmail.setVisibility(View.VISIBLE);
+                    binding.imgUser.setImageResource(imagen);
+                    binding.imgUser.setVisibility(View.VISIBLE);
+                    binding.buttonMostrar.setText("Ocultar datos");
                 }else{
-                    txtNom.setVisibility(View.GONE);
-                    txtApe.setVisibility(View.GONE);
-                    txtEma.setVisibility(View.GONE);
-                    txtImg.setVisibility(View.GONE);
-                    txtNombre.setVisibility(View.GONE);
-                    txtApellido.setVisibility(View.GONE);
-                    txtEmail.setVisibility(View.GONE);
-                    idImagen.setVisibility(View.GONE);
-                    idButtonMostrar.setText("Mostrar datos");
+                    binding.txtNom.setVisibility(View.GONE);
+                    binding.txtApe.setVisibility(View.GONE);
+                    binding.txtEma.setVisibility(View.GONE);
+                    binding.txtImg.setVisibility(View.GONE);
+                    binding.txtNombre.setVisibility(View.GONE);
+                    binding.txtApellido.setVisibility(View.GONE);
+                    binding.txtEmail.setVisibility(View.GONE);
+                    binding.imgUser.setVisibility(View.GONE);
+                    binding.buttonMostrar.setText("Mostrar datos");
                 }
-
             }
         });
-
 
         // Boton para volver a la activity anterior.
-        Button idButtonSalir = findViewById(R.id.buttonSalir);
+       binding.buttonSalir.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               onBackPressed();
+           }
+       });
 
-        idButtonSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
     }
 }
